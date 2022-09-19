@@ -1,0 +1,34 @@
+.footer{
+   height:fit-content;
+   background-image: url("../assets//footer-bg.jpg"); 
+   background-size:contain;
+   overflow:hidden;
+}
+@media (min-width:768px){
+    .footer{
+        height:fit-content;
+    }
+}
+
+@media (max-width:767px){
+    .footer{
+        height:fit-content;
+    }
+}
+@media (max-width:767px){
+    .col{
+        width:100%;
+    }
+}
+@media (max-width:767px){
+    .col{
+        width:100%;
+    }
+}
+
+.footer_item{
+    cursor: pointer;
+    color:white;
+    font-size:2vw;
+}
+.footer_item:hover{color:red}

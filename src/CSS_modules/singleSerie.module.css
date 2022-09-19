@@ -1,0 +1,40 @@
+.title{
+    cursor:pointer;
+    color:white;
+    font-weight:bolder;
+    font-size:1rem;
+    text-decoration: none;
+    text-align: center;
+}
+.title:hover{color:red}
+.backdrop{
+    height:450px;
+    width: 100%;
+   opacity: .5;
+   background-size: cover;
+}
+.poster{
+    height:10px;
+    width: 50%;
+    position: relative;
+    top:10px;
+    left:10px;
+}
+.move{
+    position: relative;
+    top:-280px;
+}
+.badges{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+
+}
+.serie_img{
+    cursor: pointer;
+}
+.serie_img:hover{
+    opacity: .5;
+} 

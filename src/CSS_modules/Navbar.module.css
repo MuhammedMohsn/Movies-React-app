@@ -1,0 +1,11 @@
+.linknav:hover{ 
+    color:red !important;
+}
+
+.navindex{
+    z-index: 6;
+    background-color:transparent !important;
+    position: fixed;
+    top:0;
+    left:0;
+}

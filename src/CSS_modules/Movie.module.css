@@ -1,0 +1,74 @@
+.backdrop {
+    height: 450px;
+    width: 100%;
+    opacity: .5;
+    background-size: cover;
+}
+
+.header {
+    text-align: center;
+    font-size: 3vw;
+}
+
+.title {
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.title:hover {
+    color: red
+}
+
+.poster {
+    height: 10px;
+    width: 50%;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.badges {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* overflow: hidden; */
+}
+
+.movie_img {
+    cursor: pointer;
+}
+
+.movie_img:hover {
+    opacity: .5;
+}
+
+.move {
+    position: relative;
+    top: -280px;
+    margin-bottom: 30px
+}
+
+.move2 {
+    position: relative;
+    top: -140px;
+    margin-bottom: 30px
+}
+
+@media (max-width: 767px) {
+    .row_height {
+        max-height: 200px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .row_height {
+        max-height: 600px;
+    }
+
+
+}
