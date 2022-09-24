@@ -22,13 +22,9 @@ function App() {
           <Route path="/TV" element={<TV series={series} setSeries={setSeries} />} />
           <Route path="/movies/:id" element={<Movie />} />
           <Route path="/TV/:id" element={<SeriesDetails />} />
-
-        </Routes>
-
-        <Footer/>
-
-
-      </BrowserRouter>
+       </Routes>
+       <Footer/>
+    </BrowserRouter>
 
     </Fragment>
   );

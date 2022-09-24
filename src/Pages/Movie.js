@@ -62,9 +62,9 @@ function Movie() {
             </Row> </Col></Row>
         <Row>
           {videos.slice(0, 4).map((video) => {
-            let { name, id, key } = video
+            let { name, id, key:k } = video
             return (<Col key={id} xs={12} className="mb-3">
-              <iframe src={`https://www.youtube.com/embed/${key}`} width="100%" height="400px" title={`${name}`}></iframe>
+              <iframe src={`https://www.youtube.com/embed/${k}`} width="100%" height="400px" title={`${name}`}></iframe>
             </Col>)
           })}
         </Row>

@@ -26,7 +26,7 @@ function Home({ movies, setMovies }) {
   }, [Id])
   return (
     <Fragment>
-      <Header movies={movies}/>
+      <Header movies={movies} />
       <div className={`${styles.container}`}>
 
         <div className={styles.sectionType}>
@@ -36,7 +36,7 @@ function Home({ movies, setMovies }) {
           </Link>
         </div>
         <Row>
-          {trendingMovies.slice(0,6).map((movie) => {
+          {trendingMovies.slice(0, 6).map((movie) => {
             let { id, title, poster_path } = movie
             return (<Col key={id} xs={4} md={3} lg={2} className={`${styles.col} mb-3`}>
               <Card className="w-100 h-100">
@@ -60,7 +60,7 @@ function Home({ movies, setMovies }) {
 
           {topRatedMovies.slice(0, 6).map((movie) => {
             let { id, title, poster_path } = movie
-            return (<Col key={id}  xs={4} md={3} lg={2} className={`${styles.col} mb-3`} >
+            return (<Col key={id} xs={4} md={3} lg={2} className={`${styles.col} mb-3`} >
               <Card className="w-100 h-100">
                 <Card.Img variant="top" className='h-75' style={{ cursor: "pointer" }} onClick={() => { setId(id); navigate(`/movies/${id}`) }} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                 <Card.Body className="h-25">
@@ -82,7 +82,7 @@ function Home({ movies, setMovies }) {
         <Row>
           {trendingTv.slice(0, 6).map((serie) => {
             let { id, name, poster_path } = serie
-            return (<Col key={id}  xs={4} md={3} lg={2} className={`${styles.col} mb-3`} >
+            return (<Col key={id} xs={4} md={3} lg={2} className={`${styles.col} mb-3`} >
               <Card className="w-100 h-100">
                 <Card.Img variant="top" className='h-75' style={{ cursor: "pointer" }} onClick={() => { setId(id); navigate(`/tv/${id}`) }} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                 <Card.Body className='h-25'>
@@ -102,7 +102,7 @@ function Home({ movies, setMovies }) {
         <Row>
           {topRatedTv.slice(0, 6).map((serie) => {
             let { id, name, poster_path } = serie
-            return (<Col key={id}  xs={4} md={3} lg={2} className={`${styles.col} mb-3`}>
+            return (<Col key={id} xs={4} md={3} lg={2} className={`${styles.col} mb-3`}>
               <Card className="w-100 h-100">
                 <Card.Img variant="top" className='h-75' style={{ cursor: "pointer" }} onClick={() => { setId(id); navigate(`/tv/${id}`) }} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                 <Card.Body className='h-25'>
