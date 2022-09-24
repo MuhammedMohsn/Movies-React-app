@@ -17,11 +17,11 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home movies={movies} setMovies={setMovies} />} />
-          <Route path="/movies" element={<Movies/>} />
-          <Route path="/TV" element={<TV series={series} setSeries={setSeries} />} />
-          <Route path="/movies/:id" element={<Movie />} />
-          <Route path="/TV/:id" element={<SeriesDetails />} />
+          <Route path="/Movies-React-app/" element={<Home movies={movies} setMovies={setMovies} />} />
+          <Route path="/Movies-React-app/movies" element={<Movies/>} />
+          <Route path="/Movies-React-app/TV" element={<TV series={series} setSeries={setSeries} />} />
+          <Route path="/Movies-React-app/movies/:id" element={<Movie />} />
+          <Route path="/Movies-React-app/TV/:id" element={<SeriesDetails />} />
        </Routes>
        <Footer/>
     </BrowserRouter>
