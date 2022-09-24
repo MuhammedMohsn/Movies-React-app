@@ -18,7 +18,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home movies={movies} setMovies={setMovies} />} />
-          <Route path="/movies" element={<Movies  />} />
+          <Route path="/movies" element={<Movies/>} />
           <Route path="/TV" element={<TV series={series} setSeries={setSeries} />} />
           <Route path="/movies/:id" element={<Movie />} />
           <Route path="/TV/:id" element={<SeriesDetails />} />
