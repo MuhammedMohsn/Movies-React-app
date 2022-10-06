@@ -3,7 +3,7 @@ import Header from '../Components/Header'
 import { Link, useNavigate } from 'react-router-dom'
 import { Row, Col, Card } from 'react-bootstrap'
 import styles from '../CSS_modules/Home.module.css'
-import { getTrendingMovies, getTopRatedMovies, getTrendingTv, getTopRatedTv } from '../api/api'
+import { getUpComingMovies, getTrendingMovies, getTopRatedMovies, getTrendingTv, getTopRatedTv } from '../api/api'
 function Home({ movies, setMovies }) {
   let navigate = useNavigate()
   let [trendingMovies, setTrendingMovies] = useState([])
@@ -16,8 +16,14 @@ function Home({ movies, setMovies }) {
     getTopRatedMovies().then((data) => setTopRatedMovies(data));
     getTrendingTv().then((data) => setTrendingTv(data));
     getTopRatedTv().then((data) => setTopRatedTv(data))
-  }, [trendingMovies,topRatedMovies,trendingMovies,topRatedTv,trendingTv])
-  
+  }, [trendingMovies,topRatedMovies,trendingMovies])
+  useEffect(() => {
+    getTrendingMovies().then((data) => setTrendingMovies(data));
+    getTopRatedMovies().then((data) => setTopRatedMovies(data));
+    getTrendingTv().then((data) => setTrendingTv(data));
+    getTopRatedTv().then((data) => setTopRatedTv(data))
+    getUpComingMovies().then((data) => setMovies(data))
+  }, [Id])
   return (
     <Fragment>
       <Header movies={movies} />
