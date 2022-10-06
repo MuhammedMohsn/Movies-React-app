@@ -1,32 +1,32 @@
 import React, { Fragment } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import styles from '../CSS_modules/Footer.module.css'
 import { useNavigate } from 'react-router-dom'
 function Footer() {
     let navigate = useNavigate()
     return (
         <Fragment>
-            <div className={`${styles.footer} mt-4`}>
-                <div className={`w-100 fs-2 fw-bolder h-25 d-flex align-items-center justify-content-center ${styles.footer_item}`}> <img src={`../assets/tmovie.png`} /> tMovies</div>
-                <Row >
-                    <Col xs={9} md={4} className={`mb-2 ${styles.col}`}>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center `}>Home</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100   mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Contact us</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Term of services</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>About us</div>
+            <div className={`${styles.footer}`}>
+                <div className={`${styles.img_container} text-white fs-3`}> <img src={'../assets/tmovie.png'} /> tMovies</div>
+                <Row className={`h-75 text-white`}>
+                    <Col xs={12} md={4} lg={4} className={`${styles.col} d-flex justify-content-around align-items-center flex-column`}>
+                        <div onClick={() => { navigate("/") }} className={` ${styles.footer_item}`}>Home</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Contact us</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Term of services</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>About us</div>
                     </Col>
-                    <Col xs={9} md={4} className={`mb-2 `}>
+                    <Col xs={12} md={4} lg={4} className={`${styles.col} d-flex justify-content-around align-items-center flex-column `}>
 
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center `}>Live</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100   mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>FAQ</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Premium</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Pravacy policy</div>
+                        <div onClick={() => { navigate("/") }} className={` ${styles.footer_item}`}>Live</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>FAQ</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Premium</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Pravacy policy</div>
                     </Col>
-                    <Col xs={9} md={4} className={`mb-2 `}>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100  mb-3 fw-bolder  d-flex align-items-center justify-content-center `}>
+                    <Col xs={12} md={4} lg={4} className={`${styles.col} d-flex justify-content-around align-items-center flex-column`}>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>
                             You must watch</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100   mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Recent Release</div>
-                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item} h-25 w-100 mb-3 fw-bolder  d-flex align-items-center justify-content-center`}>Top IMDB</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Recent Release</div>
+                        <div onClick={() => { navigate("/") }} className={`${styles.footer_item}`}>Top IMDB</div>
 
                     </Col>
                 </Row>  </div></Fragment>

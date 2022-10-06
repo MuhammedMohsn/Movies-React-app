@@ -22,7 +22,7 @@ function Tv() {
         <button type="submit" className="h-100 w-25" style={{ fontSize: "1.3vw" }} >Search</button>
       </form>
       <Row className="ms-3">
-        {series.filter(serie => serie.name.includes(inputSearch)).map((serie) => {
+        {series.filter(serie => serie.name.toLowerCase().includes(inputSearch.toLowerCase())).map((serie) => {
           let { name, poster_path, id } = serie
           return (
             <Col xs={4} md={3} lg={2} key={Math.random()} className="mb-2">

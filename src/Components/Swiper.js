@@ -35,8 +35,8 @@ function Swipper({ movies }) {
                 <div className="h-25 w-100"></div>
                 <Container className="d-flex align-items-center  h-75">
                   <div className={styles.content}>
-                    <h3 className="text-dark fw-bolder" style={{ fontSize: '3vw' }}>{title}</h3>
-                    <h5 style={{ fontSize: '2vw', marginBottom: "20px" }}>{overview}</h5>
+                    <h3 className="text-white fw-bolder" style={{ fontSize: '3vw' }}>{title}</h3>
+                    <h5 style={{ fontSize: '2vw', marginBottom: "20px",color:"black" }}>{overview}</h5>
                     <div>
                       <button className={`${styles.watchBtn}`} onClick={() => { navigate(`/movies/${id}`) }}>Watch Now</button>
                     </div>

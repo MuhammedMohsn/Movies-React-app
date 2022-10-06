@@ -1,3 +1,7 @@
+.linknav{
+    color:white
+}
+
 .linknav:hover{ 
     color:red !important;
 }

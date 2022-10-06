@@ -1,36 +1,117 @@
+.poster_img{
+    display:inline-block;
+    height: 85%;
+    width: 85%;
+}
+@media (max-width: 468px){
+.poster_img{
+    display:inline-block;
+    height: 60%;
+    width: 60%;
+}
+}
+@media (max-width:767px) and (min-width:468px){
+    .poster_img{
+        display:inline-block;
+        height: 75%;
+        width: 75%;
+    }
+}
+
+
 .title{
     cursor:pointer;
-    color:white;
+    color:black;
     font-weight:bolder;
-    font-size:1rem;
+    font-size:2vw;
     text-decoration: none;
     text-align: center;
 }
 .title:hover{color:red}
+
 .backdrop{
-    height:450px;
+    height:700px;
     width: 100%;
-   opacity: .5;
-   background-size: cover;
-}
-.poster{
-    height:10px;
-    width: 50%;
+    background-size: cover;
     position: relative;
+    overflow: hidden;}
+
+.backdrop:after{
+    content:"";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.container{
+    height: 100% !important;
+    width: 100% !important;
+    position: absolute;
+    z-index: 3;
     top:10px;
-    left:10px;
 }
-.move{
-    position: relative;
-    top:-280px;
+
+
+@media (min-width: 480px) and (max-width:768px){
+    .backdrop{
+        height:600px;
+        width: 100%;}
+        
 }
+@media (max-width: 480px){
+    .backdrop{
+        height:400px;
+        width: 100%;
+    }
+}
+
 .badges{
     width:100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: fit-content;
+}
 
+@media (max-width: 768px){
+    .badges{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;}
+}
+span{
+    display: inline-block;
+    font-size:2vw;
+    height:fit-content;
+    width: fit-content;
+    background-color:black;
+    border-radius: 20px;
+    color: white;
+    
+}
+.cast_img{
+    display:inline-block;
+   
+}
+@media (min-width: 768px){
+    .cast_img{
+        height:100%;
+        width: 100%;
+    }
+}
+@media (max-width: 767px){
+    .cast_img{
+        height:100%;
+        width: 100%;
+    }
+}
+.videos_container{
+    position: relative !important;
+    z-index: 4;
+    top:10px;
 }
 .serie_img{
     cursor: pointer;

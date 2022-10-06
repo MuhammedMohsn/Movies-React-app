@@ -33,14 +33,14 @@
     outline:none;
 }
 .search input{
-    background-color: black;
+    background-color: white;
     border-radius: 20px;
     padding-left: 20px;
     outline:none;
 
 }
 .search input::placeholder{
-    color:white;
+    color:gray;
     opacity: .5;
     font-size: 1.3vw;
 }
@@ -67,7 +67,7 @@
 
 
 .movie_title{
-    color:white;
+    color:black;
     font-weight:bolder;
     text-align: center;
     cursor:pointer;

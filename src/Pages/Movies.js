@@ -10,11 +10,11 @@ function Movies() {
   let [id, setId] = useState()
   let [inputSearch, setInputSearch] = useState("")
   let loadMovies = () => { setPage(prevpage => { return prevpage + 1 }) }
- 
+
   useEffect(() => {
     getUpComingMovies(page).then((movies) => setMovies(prevState => { return prevState.concat(movies) }))
   }, [page, setMovies, id])
-  
+
   return (
     <Fragment>
       <div className={`${styles.headerImg} mb-4`}>Movies</div>
@@ -23,7 +23,7 @@ function Movies() {
         <button type="submit" className="h-100 w-25" style={{ fontSize: "1.3vw" }} >Search</button>
       </form>
       <Row className="ms-3">
-        {movies.filter((movie=>{return movie.title.includes(inputSearch)})).map((movie) => {
+        {movies.filter((movie => { return movie.title.toLowerCase().includes(inputSearch.toLowerCase()) })).map((movie) => {
           let { title, poster_path, id } = movie
           return (
             <Col xs={4} md={3} lg={2} key={Math.random()} className={`${styles.col} mb-2`}>
