@@ -16,7 +16,7 @@ function Home({ movies, setMovies }) {
     getTopRatedMovies().then((data) => setTopRatedMovies(data));
     getTrendingTv().then((data) => setTrendingTv(data));
     getTopRatedTv().then((data) => setTopRatedTv(data))
-  }, [trendingMovies,topRatedMovies,trendingMovies])
+  }, [])
   useEffect(() => {
     getTrendingMovies().then((data) => setTrendingMovies(data));
     getTopRatedMovies().then((data) => setTopRatedMovies(data));
