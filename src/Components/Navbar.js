@@ -7,12 +7,12 @@ function NavBar() {
     <Fragment>
     <Navbar  className={`fs-3 fw-bolder text-white ${styles.navindex} w-100 `} style={{height:"100px"}}>
     <Container  >
-      <Navbar.Brand as={Link} to="/" >
+      <Navbar.Brand as={Link} to="/"  >
       <img src="../assets/tmovie.png"/> Awaan</Navbar.Brand>
       <Nav className={` d-flex align-items-center justify-content-end flex-row`}>
-        <Nav.Link as={NavLink} to="/" className={styles.linknav}>Home</Nav.Link>
-        <Nav.Link as={NavLink} to="/Movies" className={styles.linknav}>Movies</Nav.Link>
-        <Nav.Link as={NavLink} to="/TV" className={styles.linknav}>TV</Nav.Link>
+        <Nav.Link as={NavLink} to="/" onClick={window.scrollTo(0,0)} className={styles.linknav}>Home</Nav.Link>
+        <Nav.Link as={NavLink} to="/Movies" onClick={window.scrollTo(0,0)} className={styles.linknav}>Movies</Nav.Link>
+        <Nav.Link as={NavLink} to="/TV" onClick={window.scrollTo(0,0)} className={styles.linknav}>TV</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
