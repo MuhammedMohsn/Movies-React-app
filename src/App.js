@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fragment, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import NavBar from './Components/Navbar'
 import Home from './Pages/Home'
 import Movies from './Pages/Movies'
@@ -14,7 +14,7 @@ function App() {
   let [series, setSeries] = useState([])
   return (
     <Fragment>
-      <HashRouter>
+      <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home movies={movies} setMovies={setMovies} />} />
@@ -24,7 +24,7 @@ function App() {
           <Route path="/TV/:id" element={<SeriesDetails />} />
         </Routes>
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
 
     </Fragment>
   );
