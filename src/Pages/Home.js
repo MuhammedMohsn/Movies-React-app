@@ -16,14 +16,8 @@ function Home({ movies, setMovies }) {
     getTopRatedMovies().then((data) => setTopRatedMovies(data));
     getTrendingTv().then((data) => setTrendingTv(data));
     getTopRatedTv().then((data) => setTopRatedTv(data))
-  }, [])
-  useEffect(() => {
-    getTrendingMovies().then((data) => setTrendingMovies(data));
-    getTopRatedMovies().then((data) => setTopRatedMovies(data));
-    getTrendingTv().then((data) => setTrendingTv(data));
-    getTopRatedTv().then((data) => setTopRatedTv(data))
-    getUpComingMovies().then((data) => setMovies(data))
-  }, [Id])
+  }, [trendingMovies,topRatedMovies,trendingMovies,topRatedTv,trendingTv])
+  
   return (
     <Fragment>
       <Header movies={movies} />
