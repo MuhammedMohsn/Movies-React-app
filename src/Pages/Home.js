@@ -3,7 +3,7 @@ import Header from '../Components/Header'
 import { Link, useNavigate } from 'react-router-dom'
 import { Row, Col, Card } from 'react-bootstrap'
 import styles from '../CSS_modules/Home.module.css'
-import { getUpComingMovies, getTrendingMovies, getTopRatedMovies, getTrendingTv, getTopRatedTv } from '../api/api'
+import { getTrendingMovies, getTopRatedMovies, getTrendingTv, getTopRatedTv } from '../api/api'
 function Home({ movies, setMovies }) {
   let navigate = useNavigate()
   let [trendingMovies, setTrendingMovies] = useState([])
