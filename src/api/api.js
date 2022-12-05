@@ -1,8 +1,6 @@
 import axios from 'axios'
 let URL = "https://api.themoviedb.org/3"
 let API_key = "c501725137ac624a920da107fa82beb3"
-// https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
-
 export let getUpComingMovies = async (page = 1) => {
     try {
         let res = await axios.get(`${URL}/movie/upcoming?api_key=${API_key}&page=${page}`)
@@ -11,7 +9,6 @@ export let getUpComingMovies = async (page = 1) => {
         return results;
     }
     catch (err) { console.log(err) }
-
 }
 export let getMovieById = async (id) => {
    try{ let response = await axios.get(`${URL}/movie/${id}?api_key=${API_key}`)

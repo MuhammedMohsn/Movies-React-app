@@ -5,6 +5,7 @@ import { getMovieById, getMovieVideos, getCasts, getSimilar } from '../api/api'
 import styles from '../CSS_modules/singleSerie.module.css'
 function SeriesDetails() {
   let navigate = useNavigate()
+  // define states
   let [singleMovie, setSingleMovie] = useState({})
   let [videos, setVideos] = useState([])
   let { id } = useParams();
@@ -12,21 +13,15 @@ function SeriesDetails() {
   let [casts, setCasts] = useState([])
   let [similar, setSimilar] = useState([])
   useEffect(() => {
+    // get th details of specified movie after mounting the page and after changing of id
     getMovieById(id).then((movie) => { setSingleMovie(movie); setLoading(false); });
     getMovieVideos(id).then((videosdata) => { setVideos(videosdata); });
     getCasts(id).then((castsdata) => { setCasts(castsdata); })
-    getSimilar(id).then((similarmoviedata) => { setSimilar(similarmoviedata) })
-
-  }, [])
-  useEffect(() => {
-    getMovieById(id).then((movie) => { setSingleMovie(movie) });
-    getMovieVideos(id).then((videosdata) => { setVideos(videosdata) });
-    getCasts(id).then((castsdata) => { setCasts(castsdata) })
-    getSimilar(id).then((similarmoviedata) => { setSimilar(similarmoviedata) })
-
-  }, [id])
-  let { title, poster_path, backdrop_path, overview, genres } = singleMovie
+    getSimilar(id).then((similarmoviedata) => { setSimilar(similarmoviedata) })}, [id])
+  // to wait until getting data
   if (loading) { return (<div>loading...........</div>) }
+  // displaying data of specified movie
+  let { title, poster_path, backdrop_path, overview, genres } = singleMovie
   return (
     <Fragment>
       <div className={`${styles.backdrop} mb-5`} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`, backgroundAttachment: "fixed" }}>
@@ -40,7 +35,7 @@ function SeriesDetails() {
               <p className={`${styles.badges}  w-100`}>
                 {genres.map((genre) => {
                   let { name } = genre
-                  return (<div key={Math.random()} ><span pill bg="dark" className=" text-center "> {name}</span></div>)
+                  return (<div key={Math.random()} ><span  bg="dark" className=" text-center "> {name}</span></div>)
                 })}
               </p>
               <div className="w-100 " style={{ height: "fit-content", fontSize: "2vw" }}>{overview.slice(0, 200)}</div>
@@ -54,18 +49,19 @@ function SeriesDetails() {
                       <div style={{ fontSize: "2vw" }} >{name}</div>
                     </Col>
                   )
-                })} </Row></Col></Row> </Container></div>
-
-      <Container >
-
-        <Row className={`${styles.videos_container}`} >
+                })} </Row></Col></Row> 
+          </Container></div>
+      {/**display video trailers that related to movie */}
+      <Container>
+      <Row className={`${styles.videos_container}`} >
           {videos.slice(0, 4).map((video) => {
             let { name, key: k, id } = video
             return (<Col key={id} xs={12} className="mb-3">
               <iframe src={`https://www.youtube.com/embed/${k}`} width="100%" height="400px" title={`${name}`}></iframe>
             </Col>)
           })}
-        </Row>
+      </Row>
+        {/**showing movies that similar to the movie */}
         <h2>Similar</h2>
         <Row>
           {similar.slice(0, 5).map((movie) => {
@@ -78,7 +74,8 @@ function SeriesDetails() {
                 </Card.Body>
               </Card>
             </Col>)
-          })}</Row>
+          })}
+        </Row>
       </Container>
     </Fragment>
   )

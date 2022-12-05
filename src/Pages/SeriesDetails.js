@@ -5,44 +5,40 @@ import { getSeriesSimilar, getSeriesCasts, getSeriesVideos, getSeriesById } from
 import styles from '../CSS_modules/singleSerie.module.css'
 function SeriesDetails() {
   let navigate = useNavigate()
+  // define states
   let [singleSeries, setSingleSeries] = useState({})
   let [videos, setVideos] = useState([])
   let { id } = useParams();
   let [loading, setLoading] = useState(true)
   let [casts, setCasts] = useState([])
   let [similar, setSimilar] = useState([])
+  // getting tv serie details
   useEffect(() => {
     getSeriesById(id).then((seriedata) => { setSingleSeries(seriedata); setLoading(false); });
     getSeriesVideos(id).then((videosdata) => { setVideos(videosdata) });
     getSeriesCasts(id).then((castsdata) => { setCasts(castsdata) })
     getSeriesSimilar(id).then((similarseriesdata) => { setSimilar(similarseriesdata) })
-  }, [])
-
-  useEffect(() => {
-    getSeriesById(id).then((seriedata) => { setSingleSeries(seriedata) });
-    getSeriesVideos(id).then((videosdata) => { setVideos(videosdata) });
-    getSeriesCasts(id).then((castsdata) => { setCasts(castsdata) })
-    getSeriesSimilar(id).then((similarseriesdata) => { setSimilar(similarseriesdata) })
   }, [id])
-
-  let { name, poster_path, backdrop_path, overview, genres } = singleSeries
+  // waiting data to be fetched from API
   if (loading) { return (<div>loading...........</div>) }
+  // displaying tv serie info
+  let { name, poster_path, backdrop_path, overview, genres } = singleSeries
   return (
     <Fragment>
       <div className={`${styles.backdrop} mb-5`} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`, backgroundAttachment: "fixed" }}>
         <Container className={styles.container}>
           <Row className="mb-4 h-100 w-100">
-            <Col xs={6} md={6} className="h-100">
+            <Col xs={6} md={6} className="h-100 d-flex align-items-center justify-content-center">
               <img className={`${styles.poster_img}`} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={name} />
             </Col>
-            <Col xs={6} md={6} style={{ height: "100%", display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+            <Col xs={6} md={6} className="h-100 d-flex flex-column align-items-center justify-content-center">
               <h1 style={{ fontSize: "4vw" }}>{name}</h1>
-              <p className={`${styles.badges}  w-100`}>
+              <div className={`${styles.badges}  w-100`}>
                 {genres.map((genre) => {
                   let { name } = genre
-                  return (<div key={Math.random()} ><span pill bg="dark" className=" text-center "> {name}</span></div>)
+                  return (<div key={Math.random()} ><span bg="dark" className=" text-center "> {name}</span></div>)
                 })}
-              </p>
+              </div>
               <div className="w-100 " style={{ height: "fit-content", fontSize: "2vw" }}>{overview.slice(0, 200)}</div>
               <h1 style={{ color: "red", alignSelf: "flex-start" }}>Casts</h1>
               <Row >
@@ -55,9 +51,9 @@ function SeriesDetails() {
                     </Col>
                   )
                 })} </Row></Col></Row></Container></div>
-
+    {/**display trailer videos related to the serie */}
       <Container >
-        <Row className={`${styles.videos_container}`} >
+        <Row >
           {videos.slice(0, 4).map((video) => {
             let { name, key: k, id } = video
             return (<Col key={id} xs={12} className="mb-3">
@@ -65,11 +61,12 @@ function SeriesDetails() {
             </Col>)
           })}
         </Row>
+        {/**showing movies that are similar to the serie */}
         <h2>Similar</h2>
         <Row>
           {similar.slice(0, 5).map((movie) => {
             let { poster_path, name, id } = movie
-            return (<Col xs={3} key={Math.random()}>
+            return (<Col xs={3} key={Math.random()} className="mb-4">
               <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" onClick={() => { navigate(`/tv/${id}`) }} src={`https://image.tmdb.org/t/p/w500${poster_path}`} className={`${styles.serie_img}`} />
                 <Card.Body>

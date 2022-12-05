@@ -1,42 +1,24 @@
-.poster_img{
-    display:inline-block;
-    height: 85%;
-    width: 85%;
-}
-@media (max-width: 468px){
-.poster_img{
-    display:inline-block;
-    height: 60%;
-    width: 60%;
-}
-}
-@media (max-width:767px) and (min-width:468px){
-    .poster_img{
-        display:inline-block;
-        height: 75%;
-        width: 75%;
-    }
-}
-
-
 .title{
     cursor:pointer;
     color:black;
     font-weight:bolder;
-    font-size:2vw;
+    font-size:1.5vw;
     text-decoration: none;
     text-align: center;
 }
 .title:hover{color:red}
 
 .backdrop{
-    height:700px;
+    height:900px;
     width: 100%;
     background-size: cover;
     position: relative;
-    overflow: hidden;}
+    overflow: hidden;
+    background-attachment: fixed;
+    z-index: 1;
+}
 
-.backdrop:after{
+.backdrop::after{
     content:"";
     position: absolute;
     height: 100%;
@@ -47,24 +29,45 @@
     z-index: 2;
 }
 .container{
-    height: 100% !important;
-    width: 100% !important;
+    height: 100% ;
     position: absolute;
     z-index: 3;
-    top:10px;
+    top:50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transform:translateX(10%)
 }
+.poster_img{
+    display:inline-block;
+    height: 75%;
+    width: 90%;
+    border-radius: 20px;
+}
+
 
 
 @media (min-width: 480px) and (max-width:768px){
     .backdrop{
         height:600px;
-        width: 100%;}
+        width: 100%;
+    }
+    .poster_img{
+            display:inline-block;
+            height: 70%;
+            width: 80%;
+        }
         
 }
 @media (max-width: 480px){
     .backdrop{
         height:400px;
         width: 100%;
+    }
+    .poster_img{
+        display:inline-block;
+        height: 60%;
+        width: 60%;
     }
 }
 
@@ -94,25 +97,12 @@ span{
 }
 .cast_img{
     display:inline-block;
-   
+    border-radius:10px;
+    object-fit: contain;
+    height: 75%;
+    width: 100%;
 }
-@media (min-width: 768px){
-    .cast_img{
-        height:100%;
-        width: 100%;
-    }
-}
-@media (max-width: 767px){
-    .cast_img{
-        height:100%;
-        width: 100%;
-    }
-}
-.videos_container{
-    position: relative !important;
-    z-index: 4;
-    top:10px;
-}
+
 .serie_img{
     cursor: pointer;
 }

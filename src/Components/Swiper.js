@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Container } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Container} from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import styles from '../CSS_modules/Swiper.module.css'
-function Swipper({ movies }) {
+function Swipper({comingMovies}) {
   let navigate = useNavigate()
   return (
     <Fragment>
@@ -15,7 +15,7 @@ function Swipper({ movies }) {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 2000,
           disableOnInteraction: false
         }}
         pagination={{
@@ -25,9 +25,9 @@ function Swipper({ movies }) {
         modules={[Autoplay, Pagination, Navigation]}
         className={styles.swiper}
       >
-    
-        {movies.slice(0, 4).map(movie => {
+      {comingMovies.slice(0, 6).map(movie => {
           let { id, title, overview, poster_path, backdrop_path } = movie
+          console.log(id)
           return (
             <SwiperSlide key={Math.random()} className={styles.swiper_slide}
               style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})` }}>
@@ -37,20 +37,15 @@ function Swipper({ movies }) {
                   <div className={styles.content}>
                     <h3 className="text-white fw-bolder" style={{ fontSize: '3vw' }}>{title}</h3>
                     <h5 style={{ fontSize: '2vw', marginBottom: "20px",color:"black" }}>{overview}</h5>
-                    <div>
-                      <button className={`${styles.watchBtn}`} onClick={() => { navigate(`/movies/${id}`) }}>Watch Now</button>
-                    </div>
+                  <div>
+                <button className={`${styles.watchBtn}`} onClick={() => { navigate(`/movies/${id}`) }}>Watch Now</button> 
+                  </div>
                   </div>
                   <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} className={styles.swiperPoster} />
-
                 </Container></div>
-            </SwiperSlide>
-          )
-        })}
+            </SwiperSlide>)})}
       </Swiper>
-
-    </Fragment>
-  )
+      </Fragment>)
 }
 
 export default Swipper
