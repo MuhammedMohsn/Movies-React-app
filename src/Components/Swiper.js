@@ -31,12 +31,12 @@ function Swipper({comingMovies}) {
           return (
             <SwiperSlide key={Math.random()} className={styles.swiper_slide}
               style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})` }}>
-              <div className={`${styles.test}`}>
+              <div className={`${styles.text}`}>
                 <div className="h-25 w-100"></div>
                 <Container className="d-flex align-items-center  h-75">
                   <div className={styles.content}>
                     <h3 className="text-white fw-bolder" style={{ fontSize: '3vw' }}>{title}</h3>
-                    <h5 style={{ fontSize: '2vw', marginBottom: "20px",color:"black" }}>{overview}</h5>
+                    <h5 className="text-white-50" style={{ fontSize: '2vw', marginBottom: "20px" }}>{overview}</h5>
                   <div>
                 <button className={`${styles.watchBtn}`} onClick={() => { navigate(`/movies/${id}`) }}>Watch Now</button> 
                   </div>
