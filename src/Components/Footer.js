@@ -45,7 +45,7 @@ function Footer() {
             </div>
             <div
               onClick={() => {
-                navigate("/");
+                navigate("/about");
               }}
               className={`${styles.footer_item}`}
             >
